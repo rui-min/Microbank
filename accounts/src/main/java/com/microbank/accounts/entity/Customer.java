@@ -6,7 +6,6 @@ import lombok.Data;
 
 @Entity
 @Data
-@Builder
 public class Customer extends BaseEntity {
 
     @Id
@@ -19,5 +18,6 @@ public class Customer extends BaseEntity {
 
     private String email;
 
+    @Column(name="mobile_number")
     private String mobileNumber;
 }
