@@ -1,10 +1,13 @@
 package com.microbank.accounts.service.impl;
 
 import com.microbank.accounts.constants.AccountsConstants;
+import com.microbank.accounts.dto.AccountsDto;
 import com.microbank.accounts.dto.CustomerDto;
 import com.microbank.accounts.entity.Accounts;
 import com.microbank.accounts.entity.Customer;
 import com.microbank.accounts.exception.CustomerAlreadyExistsException;
+import com.microbank.accounts.exception.ResourceNotFoundException;
+import com.microbank.accounts.mapper.AccountsMapper;
 import com.microbank.accounts.mapper.CustomerMapper;
 import com.microbank.accounts.repository.AccountsRepository;
 import com.microbank.accounts.repository.CustomerRepository;
@@ -66,7 +69,13 @@ public class AccountsServiceImpl implements IAccountsService {
      */
     @Override
     public CustomerDto fetchAccount(String mobileNumber) {
-        return null;
+        Customer customer = customerRepository.findByMobileNumber(mobileNumber).orElseThrow(
+                () -> new ResourceNotFoundException("Customer", "mobileNumber", mobileNumber));
+        Accounts acounts = accountsRepository.findByCustomerId(customer.getCustomerId()).orElseThrow(
+                () -> new ResourceNotFoundException("Accounts", "customerId", customer.getCustomerId().toString()));
+        CustomerDto customerDto = CustomerMapper.mapToCustomerDto(customer, new CustomerDto());
+        customerDto.setAccountsDto(AccountsMapper.mapToAccountsDto(acounts, new AccountsDto()));
+        return customerDto;
     }
 
     /**
