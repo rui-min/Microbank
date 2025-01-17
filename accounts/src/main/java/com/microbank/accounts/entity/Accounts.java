@@ -7,11 +7,9 @@ import lombok.Data;
 @Data
 public class Accounts extends BaseEntity {
 
-    @Column(name="customer_id")
     private Long customerId;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long accountNumber;
 
     private String accountType;
