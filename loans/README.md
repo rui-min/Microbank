@@ -26,3 +26,4 @@
 1. no professional knowledge required, no Dockerfile file needed
 2. ensure better consistency, security, performance, and governance
 3. Support multiple popular programming languages
+4. much smaller image size 

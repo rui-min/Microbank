@@ -28,7 +28,9 @@
 
 ## Advantages of Google Jib method 
 1. no professional knowledge required, no Dockerfile file needed
-2. ensure better consistency, security, performance, and governance
+2. no Big fat jar under /target, save disk space
+3. ensure better consistency, security, performance, and governance
+4. much smaller image size 
 
 ## Disadvantages of Google Jib method
 1. Only Java

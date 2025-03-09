@@ -13,3 +13,4 @@
 2. Best practices knowledge to limit size of image and containers
 3. Security knowledge related to Docker
 4. Too many Dockerfile across hundreds of microservices
+5. Big image size if without optimization
