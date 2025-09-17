@@ -6,6 +6,7 @@
 3. Write Dockerfile in /accounts
 4. Generate docker image by running "docker build . -t <Docker username>/<app name>:<tag name>"
 5. Create and Run container by "docker run -d -p <External port>:<Container port> <complete Docker image name, including tag>"
+   (8080:any)
 
 ## Disadvantages of Dockerfile method
 1. Need Docker script knowledge
